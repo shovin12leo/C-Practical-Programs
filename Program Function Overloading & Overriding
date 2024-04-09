@@ -1,0 +1,84 @@
+# OVERLOADING
+#include <iostream>
+using namespace std;
+class demo{
+    int no1 ,no2;
+    public:
+    void setvalues()
+    {
+        cout<<"Enter two value:";
+        cin>>no1>>no2;
+    }
+    void sum()
+    {
+        int c=no1+no2;
+        cout<<"Sum:"<<c<<endl;
+    }
+    void sum(int extra)//function overlaoding
+    {
+        int c=no1+no2+extra;
+        cout<<"Number:"<<no1<<","<<no2<<endl;
+        cout<<"Sum with extra"<<c<<endl;
+    }
+};
+int main()
+{
+    demo a[4];
+    int i;
+    for(i=0;i<4;i++)
+    {
+        a[i].setvalues();
+    }
+    for(i=0;i<4;i++)
+    {
+        a[i].sum();
+        a[i].sum(10);//overloading work
+        
+    }
+    return 0;
+}
+
+
+#OVERRIDING
+
+#include <iostream>
+using namespace std;
+
+class rectangle {
+protected:
+    int len, br;
+public:
+    void setvalue(int a, int b) {
+        len = a;
+        br = b;
+    }
+    int area() {
+        return len * br;
+    }
+};
+
+class box : public rectangle {
+    int ht;
+public:
+    void setvalue(int a, int b, int h) {
+        rectangle::setvalue(a, b); // Set length and breadth of rectangle
+        ht = h;
+    }
+    int area() {
+        int a1 = 2 * rectangle::area(); // Surface area of front and back faces
+        int a2 = 2 * len * ht;           // Surface area of two side faces
+        int a3 = 2 * br * ht;            // Surface area of top and bottom faces
+        return a1 + a2 + a3;             // Total surface area
+    }
+};
+
+int main() {
+    int p, q, r, ar;
+    cout << "Enter length, breath, height: ";
+    cin >> p >> q >> r;
+    box b;
+    b.setvalue(p, q, r);
+    ar = b.area();
+    cout << "Surface area = " << ar;
+    return 0;
+}
