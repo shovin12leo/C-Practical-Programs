@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+class demo{
+    public:
+    int a;
+    int b;
+    void xy()
+    {
+        cout<<"xy of\n";
+        a=7;
+        b=19;
+        cout<<a<<","<<b<<endl;
+        pg();
+    }
+    private:
+    void pg()
+    {
+        cout<<"pg of demo\n";
+        a+=10;
+        b+=5;
+        cout<<a<<","<<b<<endl;
+    }
+};
+int main()
+{
+    demo r;
+    r.b;
+    r.xy();
+    return 0;
+}
