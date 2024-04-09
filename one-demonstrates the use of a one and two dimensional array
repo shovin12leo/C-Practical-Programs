@@ -1,0 +1,81 @@
+#one  dimensional array example program to find largest number in array
+#include <iostream>
+using namespace std;
+
+class array {
+    int arr[6];
+public:
+    void input() {
+        cout << "Enter 6 Numbers:" << endl;
+        for(int i = 0; i < 6; i++)
+            cin >> arr[i];
+    }
+
+    int largest() {
+        int y = arr[0];
+        for(int i = 0; i < 6; i++) {
+            if(arr[i] > y)
+                y = arr[i];
+        }
+        return y;
+    }
+};
+
+int main() {
+    int m;
+    array a;
+    a.input();
+    m = a.largest();
+    cout << "Largest number: " << m << endl;
+    return 0;
+}
+
+#program to find transpose of square matrix
+
+#include <iostream>
+#include<iomanip>
+using namespace std;
+class matrix{
+    int arr[3][3];
+    public:
+    void input()
+    {
+        cout<<"Enter Number For martix:"<<endl;
+        for(int i=0;i<3;i++)
+        {
+            cout<<"Row"<<(i+1)<<":"<<endl;
+            for(int j=0;j<3;j++)
+            cin>>arr[i][j];
+        }
+    }
+    void output()
+    {
+        cout<<"original matrix:"<<endl;
+        for(int i=0;i<3;i++)
+        {
+            for(int j=0;j<3;j++)
+            cout<<setw(6)<<arr[i][j];
+            cout<<endl;
+        }
+    }
+    void transpose()
+    {
+        cout<<"transpose matrix :"<<endl;
+        for(int i=0;i<3;i++){
+            for(int j=0;j<3;j++)
+            cout<<setw(6)<<arr[j][i];
+            cout<<endl;
+        }
+    }
+};
+int main()
+{
+    matrix m;
+    m.input();
+    cout<<"original"<<endl;
+    m.output();
+    m.transpose();
+    cout<<"Transpose"<<endl;
+    return 0;
+}
+
