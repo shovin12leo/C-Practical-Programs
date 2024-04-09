@@ -1,0 +1,106 @@
+# SINGLE INHERITANCE
+
+#include <iostream>
+using namespace std;
+
+class person {
+    int age;
+    char name[40];
+public:
+    void input() {
+        cout << "Enter name: ";
+        
+        cin.getline(name, 40);
+        cout << "Enter age: ";
+        cin >> age;
+    }
+    void output() {
+        cout << "Name: " << name << endl;
+        cout << "Age: " << age << endl;
+    }
+};
+
+class Emp: public person {
+    int salary, id;
+public:
+    void inemp() {
+        cout << "Enter ID: ";
+        cin >> id;
+        cout << "Enter Salary: ";
+        cin >> salary;
+    }
+    void outemp() {
+        cout << "ID: " << id << endl;
+        cout << "Salary: " << salary << endl;
+    }
+};
+
+int main() {
+    Emp e1;
+    cout << "Enter employee data:" << endl;
+    e1.input(); // Input from base class
+    e1.inemp(); // Input from derived class
+    cout << "Employee data" << endl;
+    e1.output(); // Output from base class
+    e1.outemp(); // Output from derived class
+    return 0;
+}
+
+
+#Multilevel Inheritance
+
+#include <iostream>
+using namespace std;
+
+class Employee {
+protected:
+    string name;
+    int salary;
+public:
+    void input() {
+        cout << "Enter employee name: ";
+        cin >> name;
+        cout << "Enter employee salary: ";
+        cin >> salary;
+    }
+    void output() {
+        cout << "Employee name: " << name << endl;
+        cout << "Employee salary: $" << salary << endl;
+    }
+};
+
+class Allowance : public Employee {
+protected:
+    int allowance;
+public:
+    void input_allowance() {
+        cout << "Enter allowance: ";
+        cin >> allowance;
+    }
+    void output_allowance() {
+        cout << "Allowance: " << allowance << endl;
+    }
+    int calculate_total_allowance() {
+        return salary + allowance;
+    }
+};
+
+class TotalAllowance : public Allowance {
+public:
+    void display() {
+        cout << "Total allowance: " << calculate_total_allowance() << endl;
+    }
+};
+
+int main() {
+    TotalAllowance emp;
+    emp.input();
+    emp.input_allowance();
+
+    cout << "\nEmployee details:\n";
+    emp.output();
+    emp.output_allowance();
+    emp.display();
+
+    return 0;
+}
