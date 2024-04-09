@@ -1,0 +1,76 @@
+#DEFAULT &PARAMETERIZED CONSTRUCTOR
+
+#include <iostream>
+using namespace std;
+class demo{
+    public:
+    int a,b;
+    demo()
+    {
+        a=b=0;
+        cout<<"Deafult Constructor\n";
+    }
+    demo(int x, int y)
+    {
+        a=x;
+        b=y;
+        cout<<"Parameterized constructor\n";
+    }
+    void add()
+    {
+        int c=a+b;
+        cout<<"Sum="<< c<<endl;
+    
+    }
+};
+int main()
+{
+    demo m;
+    m.add();
+    demo y(5,7);
+    y.add();
+    return 0;
+}
+
+
+
+#COPY CONSTRUCTOR
+
+#include <iostream>
+using namespace std;
+class demo
+{
+    public :
+    int a;
+    float b;
+    demo()
+    {
+        /*empty*/
+    }
+    demo (demo & ref)//copy constructor
+    {
+        cout<<"copy constructor..\n";
+        a=ref.a;
+        b=ref.b;
+        
+    }
+};
+demo function(demo m)
+{
+    cout<<"Fuction start...\n";
+    m.a++;
+    m.b+=5;
+    cout<<"function returning...\n";
+    return m;
+}
+int main()
+{
+    demo q;
+    q.a=2;
+    q.b=5;
+    demo p=q;//copy constructor work
+    cout<<p.a<<","<<p.b<<endl;
+    p=function(q);
+    cout<<p.a<<","<<p.b<<endl;
+    return 0;
+}
