@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+class Demo1 {
+public:
+    Demo1() {
+        cout << "Base Default\n";
+    }
+    Demo1(int a, int b) {
+        cout << "Base Parameterised\n";
+    }
+};
+
+class Demo2: public Demo1 {
+public:
+    Demo2() {
+        cout << "Derived Default\n";
+    }
+    Demo2(int m) : Demo1(10, 20) {
+        cout << "Derived Parameterised\n";
+    }
+};
+
+int main() {
+    Demo2 d1;
+    Demo2 d2(5);
+    return 0;
+}
