@@ -21,7 +21,7 @@ class person {
 
 int main() {
     person PER; // Fixed: Created an instance of the person class
-    PER.get("LAR", 18);
+    PER.get("Shovin", 18);
     PER.put();
     return 0;
 }
