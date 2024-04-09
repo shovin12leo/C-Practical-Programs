@@ -1,0 +1,29 @@
+#include<iostream>
+#include<string.h>
+using namespace std;
+
+class GDC {
+    int no1, no2;
+
+public:
+    void input() {
+        cout << "Enter Two Numbers:" << endl;
+        cin >> no1 >> no2;
+    }
+
+    void finGCD() {
+        int g = 1; // Initialize g to 1
+        for (int i = 1; i <= no1 && i <= no2; i++) {
+            if (no1 % i == 0 && no2 % i == 0)
+                g = i;
+        }
+        cout << "GCD: " << g << endl;
+    }
+};
+
+int main() {
+    GDC d;
+    d.input();
+    d.finGCD();
+    return 0;
+}
