@@ -1,0 +1,17 @@
+#include<iostream>
+#include<string.h>
+using namespace std;
+
+int main()
+{
+    int n=91;
+    char c='S';
+    void *p;
+    p =&n;
+    int *int_ptr=(int*)p;
+    p=&c;
+    char *char_ptr=(char *)p;
+    cout<<" Value of n using pointer:"<<*int_ptr<<endl;
+    cout<<"Value of c using pointer:"<<*char_ptr<<endl;
+    return 0;
+}
